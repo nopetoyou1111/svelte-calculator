@@ -3,5 +3,5 @@
 A calculator app built with svelte and tailwind-css
 
 Screenshots:
-[Desktop](https://github.com/user-attachments/assets/505bec98-65ed-4802-86d6-8b75572c73df)
-[Mobile](https://github.com/user-attachments/assets/921a4f56-c46c-42fa-a253-0fdb10d4fd05)
+[Desktop](https://github.com/user-attachments/assets/3f77064c-bb0e-4ae7-ac37-fd7435f2e4be)
+[Mobile](https://github.com/user-attachments/assets/eec3f8fe-4749-44c1-bdac-8162c0ecfba5)
