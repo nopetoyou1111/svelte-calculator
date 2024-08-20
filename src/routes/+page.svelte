@@ -1,10 +1,8 @@
 <script lang="ts">
   let NumberList: (number | string)[] = [];
   let VisibleNumber = "0";
-  let Last = "";
   function ClearCalculator() {
     VisibleNumber = "0";
-    Last = "";
     NumberList.splice(0, NumberList.length);
   }
   function Calculate() {
@@ -23,7 +21,6 @@
         Item !== "+" &&
         Item !== "-" &&
         Item !== "%" &&
-        Item !== "." &&
         Item !== "="
       ) {
         VisibleNumber += Item.toString();
@@ -40,13 +37,26 @@
       NumberList.push(Item);
     }
   }
+  function ClearLast()
+  {
+    if (typeof NumberList[NumberList.length - 1] === 'number') {
+        NumberList.pop();
+    }
+    if(1 < VisibleNumber.length)
+    {
+        VisibleNumber = VisibleNumber.slice(0, -1);
+    }
+    else{
+      VisibleNumber = '0'
+    }
+  }
 </script>
 
 <svelte:head>
   <title>Svelte Calculator</title>
 </svelte:head>
 <body class="bg-black text-white">
-  <h1 class="text-9xl text-right py-12 px-3 md:px-36 md:py-24">
+  <h1 class="text-9xl text-right py-12 px-3 md:px-36 md:py-20">
     {VisibleNumber}
   </h1>
   <div class="grid grid-cols-4 gap-1 place-items-center">
@@ -58,8 +68,8 @@
     </div>
     <div>
       <button
-        class="bg-light-gray text-black rounded-full p-5 text-2xl font-extrabold"
-        >+/-</button
+        class="bg-light-gray text-black rounded-full p-5 text-2xl font-extrabold" on:click={() => ClearLast()}
+        ><span class="p-2">C</span></button
       >
     </div>
     <div>
